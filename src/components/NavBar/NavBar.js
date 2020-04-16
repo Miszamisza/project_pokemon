@@ -65,7 +65,7 @@ const NavBar = () => {
             {menuItems.map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>
-                  {text === "Search Memes" ? (
+                  {text === "Search Pokemon" ? (
                     <IconButton />
                   ) : (
                     <IconButton />
