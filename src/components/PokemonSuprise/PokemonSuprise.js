@@ -39,7 +39,6 @@ class PokemonSuprise extends Component {
                 const pokemon = new Pokemon(data);
 
                 this.setState({randomPokemon: pokemon});
-                console.log(this.state.randomPokemon)
             })
             .catch(err => {
                 this.setState({errorMessage: err.message})
