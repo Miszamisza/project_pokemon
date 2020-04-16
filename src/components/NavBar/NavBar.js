@@ -7,7 +7,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Toolbar,
   Typography
 } from "@material-ui/core";
 import useMediaQuery from "@material-ui/core/useMediaQuery";

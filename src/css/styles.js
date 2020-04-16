@@ -8,8 +8,8 @@ const MyButton = styled(Button)({
     background: "#C53B22",
     borderRadius: 3,
     color: '#ebbdb5',
-    margin: '1%',
-    height: 48,
+    margin: '10%',
+    padding: '1%',
 });
 
 const MyBox = styled(Box)({
@@ -26,6 +26,11 @@ const PokeBox = styled(Box)({
     boxSizing: "border-box",
     border: 'solid',
     borderRadius: '10%',
+    backgroundColor: '#fffff0'
+});
+
+const AbilitiesBox = styled(Box)({
+    margin: '2%',
     backgroundColor: '#fffff0'
 });
 
@@ -55,5 +60,5 @@ const MyDarkLink = styled(Link)({
 
 
 
-export {MyBox, MyButton, MyHeader, PokeBox, MyToolbar, MyLightLink, MyDarkLink};
+export {MyBox, MyButton, MyHeader, PokeBox, MyToolbar, MyLightLink, MyDarkLink, AbilitiesBox};
 

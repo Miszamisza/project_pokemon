@@ -4,6 +4,7 @@ import WarningIcon from '@material-ui/icons/Warning';
 import PokemonDisplay from "../../pages/AllPokemonDisplay";
 
 
+
 class HomePage extends Component {
     constructor(props) {
         super(props);
@@ -24,16 +25,12 @@ class HomePage extends Component {
     handleNextPage(event) {
         const newOffset = this.getNextOffset();
         this.setState({offset: newOffset}, () => {
-            this.getMorePokemon();
+            this.componentWillMount();
         });
     }
 
 
     componentWillMount() {
-        this.getMorePokemon();
-    }
-
-    getMorePokemon() {
         let url = "https://pokeapi.co/api/v2/pokemon?offset=" + this.state.offset + "&limit=" + this.state.loadNumber;
         fetch(url)
             .then(res => res.json())
@@ -60,12 +57,12 @@ class HomePage extends Component {
             .catch(err => {
                 this.setState({errorMessage: err.message})
             })
-    }
+    };
 
     render() {
-        const {allPokemons, pokemonDetails, errorMessage} = this.state;
+        const {pokemonDetails, errorMessage} = this.state;
         const PokemonList = pokemonDetails.map((pokemon, index) => {
-            return (<PokemonDisplay pokemon={pokemon}/>);
+            return (<PokemonDisplay pokemon={pokemon} key={index}/>);
         });
         if (errorMessage) {
             return (

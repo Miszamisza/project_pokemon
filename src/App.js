@@ -5,6 +5,7 @@ import HomePage from "./components/HomePage";
 import PokemonSuprise from "./components/PokemonSuprise";
 //import SearchPokemons from "./components/SearchPokemons";
 import "./css/App.css";
+import Popup from "reactjs-popup";
 
 
 export const App = () => {
@@ -27,6 +28,7 @@ export const App = () => {
             </Route>
           </Switch>
         </Router>
+          <Popup></Popup>
       </>
   );
 };
