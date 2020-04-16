@@ -30,8 +30,12 @@ const PokeBox = styled(Box)({
 });
 
 const AbilitiesBox = styled(Box)({
-    margin: '2%',
-    backgroundColor: '#fffff0'
+    maxBlockSize: '15%',
+    flexBasis: '5%',
+    textAlign: 'left',
+    padding: '2%',
+    margin:'2%',
+    boxSizing: "border-box",
 });
 
 const MyHeader = styled(Box)({

@@ -12,11 +12,19 @@ const PokemonSupriseDisplay = ({pokemon}) => {
                 <div> Type: {type} </div>
             </PokeBox>
             <AbilitiesBox>
-                <div>{stat1Name}: {stat1Value}</div>
-                <div>{stat2Name}: {stat2Value}</div>
-                <div>{stat3Name}: {stat3Value}</div>
-                <div>{stat4Name}: {stat4Value}</div>
-                <div>{stat5Name}: {stat5Value}</div>
+                <div>{stat1Name}:</div><div>  {stat1Value}</div>
+            </AbilitiesBox>
+            <AbilitiesBox>
+                <div>{stat2Name}:</div><div>  {stat2Value}</div>
+            </AbilitiesBox>
+            <AbilitiesBox>
+                <div>{stat3Name}:</div><div>  {stat3Value}</div>
+            </AbilitiesBox>
+            <AbilitiesBox>
+                <div>{stat4Name}:</div><div>  {stat4Value}</div>
+            </AbilitiesBox>
+            <AbilitiesBox>
+                <div>{stat5Name}:</div><div>  {stat5Value}</div>
             </AbilitiesBox>
         </>
     )

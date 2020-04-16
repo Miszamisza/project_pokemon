@@ -60,7 +60,7 @@ class HomePage extends Component {
     };
 
     render() {
-        const {pokemonDetails, errorMessage} = this.state;
+        const {allPokemons, pokemonDetails, errorMessage} = this.state;
         const PokemonList = pokemonDetails.map((pokemon, index) => {
             return (<PokemonDisplay pokemon={pokemon} key={index}/>);
         });
@@ -75,11 +75,11 @@ class HomePage extends Component {
             )
         } else {
             return (
-                <div>
+                <>
                     <MyHeader>Pokedex</MyHeader>
                     <MyBox>{PokemonList}</MyBox>
                     <MyButton type='button' onClick={this.handleNextPage}>Next Page</MyButton>
-                </div>
+                </>
             )
 
         }

@@ -9,7 +9,7 @@ const PokemonDisplay = ({pokemon}) => {
             <img src={`/img/sprites/${pokemon.id}.png`} alt={'pokemon.name'}/>
             <div> {pokemon.name} </div>
             <div> Height: {pokemon.height} </div>
-            <Popup id={pokemon.id}></Popup>
+            <Popup id={pokemon.id} pokemon={pokemon}></Popup>
         </PokeBox>
     )
 };

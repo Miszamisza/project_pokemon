@@ -20,9 +20,6 @@ export const App = () => {
             {/*<Route exact path="/SearchPokemon">*/}
 
             {/*</Route>*/}
-            {/*<Route exact path="/ComparePokemons">*/}
-
-            {/*</Route>*/}
             <Route exact path="/PokemonSuprise">
               <PokemonSuprise/>
             </Route>

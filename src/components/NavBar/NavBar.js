@@ -16,7 +16,7 @@ import {MyToolbar, MyLightLink, MyDarkLink} from "../../css/styles";
 
 
 //Menu Items
-const menuItems = ["Search Pokemons", "Compare Pokemons", "Pokemon Suprise"];
+const menuItems = ["Search Pokemons", "Pokemon Suprise"];
 
 //Hamburger Menu
 const menuItemsButtons = menuItems.map(text => {
