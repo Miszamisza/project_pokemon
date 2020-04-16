@@ -1,8 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from "./components/NavBar";
-//import HomePage from "./pages/HomePage";
-//import RandomPokemons from "./components/PokemonSuprise";
+import HomePage from "./components/HomePage";
+// import RandomPokemon from "./pages/RandomPokemonDisplay";
 //import SearchPokemons from "./components/SearchPokemons";
 import "./css/App.css";
 
@@ -23,11 +23,11 @@ export const App = () => {
 
             {/*</Route>*/}
             {/*<Route exact path="/PokemonSuprise">*/}
-            {/*  <RandomPokemons/>*/}
+            {/*  <RandomPokemon/>*/}
             {/*</Route>*/}
           </Switch>
         </Router>
-        {/*<HomePage/>*/}
+        <HomePage/>
       </>
   );
 };
