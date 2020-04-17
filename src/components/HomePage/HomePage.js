@@ -3,6 +3,7 @@ import {MyBox, MyButton, MyHeader} from "../../css/styles";
 import WarningIcon from '@material-ui/icons/Warning';
 import PokemonDisplay from "../../pages/PokemonDisplay";
 import Pokemon from "../../pages/Pokemon";
+import PaginationUtility from "../../utils/Pagination";
 
 
 class HomePage extends Component {
@@ -10,9 +11,12 @@ class HomePage extends Component {
         super(props);
         this.state = {
             allPokemons: [],
+            pagePokemons: [],
             errorMessage: "",
             offset: 0,
-            loadNumber: 12
+            loadNumber: 12,
+            totalPages: 0,
+            page: 1
         };
         this.handleNextPage = this.handleNextPage.bind(this);
     }
@@ -23,6 +27,8 @@ class HomePage extends Component {
 
     handleNextPage(event) {
         const newOffset = this.getNextOffset();
+        let {page, pagePokemons, totalPages} = new PaginationUtility().execute(this.state.loadNumber, this.state.page, this.state.allPokemons);
+        this.setState({page: page, pagePokemons: pagePokemons, totalPages: totalPages });
         this.setState({offset: newOffset}, () => {
             this.componentWillMount();
         });
@@ -30,7 +36,7 @@ class HomePage extends Component {
 
 
     componentWillMount() {
-        for (let i = 1; i < 10; i++) {
+        for (let i = 1; i < 151; i++) {
             this.randomPoekemon(i);
         }
     }
@@ -43,17 +49,18 @@ class HomePage extends Component {
                 let temp = this.state.allPokemons;
                 temp.push(pokemon);
                 this.setState({allPokemons: temp});
-                console.log(this.state.allPokemons)
             })
             .catch(err => {
                 this.setState({errorMessage: err.message})
-            })
+            });
+
     }
 
     render() {
-        const {allPokemons, errorMessage} = this.state;
-        const PokemonList = allPokemons.map((pokemon, index) => {
-            return (<PokemonDisplay pokemon={pokemon} key={index}/>);
+        const {pagePokemons, errorMessage} = this.state;
+        const PokemonList = pagePokemons.map((pokemon, index
+                                             ) => {
+            return (<PokemonDisplay pokemon={pokemon} key={pokemon.id}/>);
         });
         if (errorMessage) {
             return (
