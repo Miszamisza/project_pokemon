@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import Modal from 'react-awesome-modal';
 import {Typography} from "@material-ui/core";
 import {MyBox, MyButton} from "../../css/styles";
-import PokemonSupriseDisplay from "../../pages/PokemonSupriseDisplay";
-import Pokemon from "../../pages/Pokemon";
+import PokemonStatsDisplay from "../../pages/PokemonStatsDisplay";
 
 export default class Popup extends Component {
     constructor(props) {
@@ -11,15 +10,11 @@ export default class Popup extends Component {
         this.state = {
             visible: false,
             pokemon: props.pokemon,
-            pokemonDetails: ""
         }
     }
 
     openModal() {
-        const pokemon = new Pokemon(this.state.pokemon);
         this.setState({visible: true});
-
-        this.setState({pokemonDetails: pokemon});
     }
 
     closeModal() {
@@ -38,7 +33,7 @@ export default class Popup extends Component {
                     <div>
                         <Typography variant={'h2'}>Stats</Typography>
                         <MyBox>
-                            <PokemonSupriseDisplay pokemon={this.state.pokemonDetails}/>
+                            <PokemonStatsDisplay pokemon={this.state.pokemon}/>
                             <MyButton onClick={() => this.closeModal()}>Close</MyButton>
                         </MyBox>
 

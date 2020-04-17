@@ -2,7 +2,7 @@ import React from "react";
 import {AbilitiesBox, PokeBox} from "../css/styles";
 
 
-const PokemonSupriseDisplay = ({pokemon}) => {
+const PokemonStatsDisplay = ({pokemon}) => {
     const {id, name, type, stat1Name, stat1Value, stat2Name, stat2Value, stat3Name, stat3Value, stat4Name, stat4Value, stat5Name, stat5Value} = pokemon;
     return (
         <>
@@ -31,4 +31,4 @@ const PokemonSupriseDisplay = ({pokemon}) => {
 };
 
 
-export default PokemonSupriseDisplay;
+export default PokemonStatsDisplay;

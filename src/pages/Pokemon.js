@@ -2,7 +2,7 @@ class Pokemon {
   constructor(data) {
     this.id = data.id;
     this.name = data.name;
-    this.type = data.types[0].type.name;
+   this.type = data.types[0].type.name;
     this.stat1Name = data.stats[0].stat.name;
     this.stat1Value = data.stats[0].base_stat;
 

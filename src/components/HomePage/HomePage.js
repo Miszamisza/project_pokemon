@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import {MyBox, MyButton, MyHeader} from "../../css/styles";
 import WarningIcon from '@material-ui/icons/Warning';
-import PokemonDisplay from "../../pages/AllPokemonDisplay";
-
+import PokemonDisplay from "../../pages/PokemonDisplay";
+import Pokemon from "../../pages/Pokemon";
 
 
 class HomePage extends Component {
@@ -10,7 +10,6 @@ class HomePage extends Component {
         super(props);
         this.state = {
             allPokemons: [],
-            pokemonDetails: [],
             errorMessage: "",
             offset: 0,
             loadNumber: 12
@@ -31,37 +30,29 @@ class HomePage extends Component {
 
 
     componentWillMount() {
-        let url = "https://pokeapi.co/api/v2/pokemon?offset=" + this.state.offset + "&limit=" + this.state.loadNumber;
-        fetch(url)
-            .then(res => res.json())
-            .then(response => {
-                if (response) {
-                    this.setState({allPokemons: response.results});
+        for (let i = 1; i < 10; i++) {
+            this.randomPoekemon(i);
+        }
+    }
 
-                    this.state.allPokemons.map(pokemon => {
-                        fetch(pokemon.url)
-                            .then(response => response.json())
-                            .then(data => {
-                                if (data) {
-                                    let temp = this.state.pokemonDetails;
-                                    temp.push(data);
-                                    this.setState({pokemonDetails: temp})
-                                }
-                            })
-                            .catch(err => {
-                                this.setState({errorMessage: err.message})
-                            })
-                    })
-                }
+    randomPoekemon(id) {
+        fetch(`http://pokeapi.co/api/v2/pokemon/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                const pokemon = new Pokemon(data);
+                let temp = this.state.allPokemons;
+                temp.push(pokemon);
+                this.setState({allPokemons: temp});
+                console.log(this.state.allPokemons)
             })
             .catch(err => {
                 this.setState({errorMessage: err.message})
             })
-    };
+    }
 
     render() {
-        const {allPokemons, pokemonDetails, errorMessage} = this.state;
-        const PokemonList = pokemonDetails.map((pokemon, index) => {
+        const {allPokemons, errorMessage} = this.state;
+        const PokemonList = allPokemons.map((pokemon, index) => {
             return (<PokemonDisplay pokemon={pokemon} key={index}/>);
         });
         if (errorMessage) {
