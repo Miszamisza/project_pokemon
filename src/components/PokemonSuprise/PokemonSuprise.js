@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {MyBox, MyButton, MyHeader} from "../../css/styles";
 import WarningIcon from '@material-ui/icons/Warning';
-import PokemonSupriseDisplay from "../../pages/PokemonSupriseDisplay"
+import PokemonStatsDisplay from "../../pages/PokemonStatsDisplay"
 import Pokemon from "../../pages/Pokemon";
 
 
@@ -60,7 +60,7 @@ class PokemonSuprise extends Component {
             return (
                 <div>
                     <MyHeader>Pokemon suprise for you</MyHeader>
-                    <MyBox><PokemonSupriseDisplay pokemon={randomPokemon}/></MyBox>
+                    <MyBox><PokemonStatsDisplay pokemon={randomPokemon}/></MyBox>
                     <MyButton type='button' onClick={this.handleRandomPokemon}>Try Again</MyButton>
                 </div>
             )

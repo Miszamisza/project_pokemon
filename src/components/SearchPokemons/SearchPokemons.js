@@ -1,6 +1,6 @@
 import React from "react";
 import {MyBox, MyButton, MyHeader} from "../../css/styles";
-import PokemonSupriseDisplay from "../../pages/PokemonSupriseDisplay";
+import PokemonStatsDisplay from "../../pages/PokemonStatsDisplay";
 
 
 const SearchPokemons = () => {
